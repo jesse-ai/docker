@@ -10,8 +10,8 @@ RUN apt-get update \
 RUN pip3 install Cython numpy
 
 # Prepare environment
-RUN mkdir /jesse
-WORKDIR /jesse
+RUN mkdir /jesse-docker
+WORKDIR /jesse-docker
 
 # Install TA-lib
 COPY build_helpers/* /tmp/
@@ -23,5 +23,4 @@ RUN pip3 install -r https://raw.githubusercontent.com/jesse-ai/jesse/master/requ
 # Install jesse
 RUN pip3 install jesse
 
-# Default to bash shell
-CMD ["/bin/bash"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

@@ -10,12 +10,8 @@ services:
       POSTGRES_DB: jesse_db
     ports:
         - 5432:5432
-    restart: unless-stopped
   bot:
     build: .
     container_name: bot-jesse
-    restart: unless-stopped
-    volumes:
-      - .:/jesse-docker
     depends_on:
       - db
